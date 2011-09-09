@@ -9,5 +9,6 @@ class Book < ActiveRecord::Base
 acts_as_list
 
  #attr_accessor :title , :position , :parent_id
-
+belongs_to :user
+has_many :chapters , :dependent => :destroy
 end

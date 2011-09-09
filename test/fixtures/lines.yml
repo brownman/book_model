@@ -1,11 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  pos: 1
+  content: MyString
+  page_id: 1
   parent_id: 1
+  pos: 1
 
 two:
-  name: MyString
-  pos: 1
+  content: MyString
+  page_id: 1
   parent_id: 1
+  pos: 1
