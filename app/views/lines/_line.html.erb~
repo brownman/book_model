@@ -1,0 +1,2 @@
+<%= link_to line.content, message %>
+<%= link_to "Reply", new_message_path(:parent_id => message) %> |

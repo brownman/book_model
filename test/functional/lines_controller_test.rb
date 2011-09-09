@@ -1,49 +1,54 @@
 require 'test_helper'
 
 class LinesControllerTest < ActionController::TestCase
-  setup do
-    @line = lines(:one)
-  end
-
-  test "should get index" do
+  def test_index
     get :index
-    assert_response :success
-    assert_not_nil assigns(:lines)
+    assert_template 'index'
   end
 
-  test "should get new" do
+  def test_show
+    get :show, :id => Line.first
+    assert_template 'show'
+  end
+
+  def test_new
     get :new
-    assert_response :success
+    assert_template 'new'
   end
 
-  test "should create line" do
-    assert_difference('Line.count') do
-      post :create, :line => @line.attributes
-    end
-
-    assert_redirected_to line_path(assigns(:line))
+  def test_create_invalid
+    Line.any_instance.stubs(:valid?).returns(false)
+    post :create
+    assert_template 'new'
   end
 
-  test "should show line" do
-    get :show, :id => @line.to_param
-    assert_response :success
+  def test_create_valid
+    Line.any_instance.stubs(:valid?).returns(true)
+    post :create
+    assert_redirected_to line_url(assigns(:line))
   end
 
-  test "should get edit" do
-    get :edit, :id => @line.to_param
-    assert_response :success
+  def test_edit
+    get :edit, :id => Line.first
+    assert_template 'edit'
   end
 
-  test "should update line" do
-    put :update, :id => @line.to_param, :line => @line.attributes
-    assert_redirected_to line_path(assigns(:line))
+  def test_update_invalid
+    Line.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => Line.first
+    assert_template 'edit'
   end
 
-  test "should destroy line" do
-    assert_difference('Line.count', -1) do
-      delete :destroy, :id => @line.to_param
-    end
+  def test_update_valid
+    Line.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => Line.first
+    assert_redirected_to line_url(assigns(:line))
+  end
 
-    assert_redirected_to lines_path
+  def test_destroy
+    line = Line.first
+    delete :destroy, :id => line
+    assert_redirected_to lines_url
+    assert !Line.exists?(line.id)
   end
 end

@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
+gem "nifty-generators", :group => :development
 
 #gem 'rake',  '0.8.7'
 gem 'rails', '3.0.9'
 gem 'rspec'
-
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -34,3 +34,4 @@ group :development, :test do
 #   gem 'webrat'
 gem 'pry'
  end
+gem "mocha", :group => :test

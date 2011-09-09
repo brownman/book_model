@@ -17,7 +17,7 @@
       <td><%= link_to "Edit", edit_line_path(line) %></td>
       <td><%= link_to "Destroy", line, :confirm => 'Are you sure?', :method => :delete %></td>
  
-      <td><%= button_to "PUSH", sign_line_path(line), :method => :post %></td>
+      <td><%= link_to "Mark as complete", sign_line_path(line), :method => :post %></td>
 
 
     </tr>

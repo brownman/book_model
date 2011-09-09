@@ -1,0 +1,23 @@
+<% title "Books" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Parent</th>
+    <th>Position</th>
+    <th>User</th>
+  </tr>
+  <% for book in @books %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.parent_id %></td>
+      <td><%= book.position %></td>
+      <td><%= book.user_id %></td>
+      <td><%= link_to "Show", book %></td>
+      <td><%= link_to "Edit", edit_book_path(book) %></td>
+      <td><%= link_to "Destroy", book, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Book", new_book_path %></p>

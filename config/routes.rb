@@ -1,5 +1,19 @@
 Test3::Application.routes.draw do
-  resources :lines
+  resources :chapters
+
+  resources :pages
+
+  resources :users
+
+  resources :books
+
+#resources :lines 
+
+  resources :lines do
+    member do
+       post 'sign' 
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -15,17 +29,8 @@ Test3::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+   #Sample resource route with options:
+
 
   # Sample resource route with sub-resources:
   #   resources :products do
