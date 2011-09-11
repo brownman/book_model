@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    find(:all, :conditions => "parent_id = 20", :order => 'pos')
   end
 
   def show
     @user = User.find(params[:id])
+
+    @books = @user.books #.paginate(:page => params[:page])
   end
 
   def new

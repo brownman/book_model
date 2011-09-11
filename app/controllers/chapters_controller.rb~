@@ -5,7 +5,6 @@ class ChaptersController < ApplicationController
 
   def show
     @chapter = Chapter.find(params[:id])
-@pages = @chapter.pages
   end
 
   def new

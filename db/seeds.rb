@@ -12,6 +12,7 @@ b1 = Book.create(:title => 'galaxy',:user_id => users.first)
 c1 = b1.chapters.create(:number => 1)
 p1 = c1.pages.create :lang_id => 1
 p1.lines.create :content => "once upon atime , there was a king .. and he had a daughter" , :parent_id => 20 
-
+c1 = Compare.new(p1 , p2)
+c1.save
 #User.first.books.create :title=>'galaxy'
 

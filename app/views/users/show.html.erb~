@@ -4,10 +4,9 @@
   <strong>Name:</strong>
   <%= @user.name %>
 
-</p>
   <strong>Books:</strong>
    <%= render :template => 'books/index' %>
-
+</p>
 
 <p>
   <%= link_to "Edit", edit_user_path(@user) %> |

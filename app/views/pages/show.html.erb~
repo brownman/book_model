@@ -12,14 +12,8 @@
   <strong>Lang:</strong>
   <%= @page.lang_id %>
 </p>
-
-<p>
-
-
   <strong>Lines:</strong>
    <%= render :template => 'lines/index' %>
-
-</p>
 <p>
   <%= link_to "Edit", edit_page_path(@page) %> |
   <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
