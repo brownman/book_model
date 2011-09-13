@@ -16,4 +16,5 @@
   <% end %>
 </table>
 
-<p><%= link_to "New Chapter", new_chapter_path %></p>
+
+<p><%= link_to "New Chapter", new_chapter_path(:book_id => @book.id) %></p>

@@ -1,18 +1,23 @@
 class BooksController < ApplicationController
+  before_filter :find_user , :only => [:index, :new]
   def index
-    @books = Book.all
+    @books = @user.books
   end
 
   def show
     @book = Book.find(params[:id])
+      #@user.books.find(params[:id])
+@chapters = @book.chapters
   end
 
   def new
-    @book = Book.new
+    @book = @user.books.build(params[:user_id] => '77')
   end
 
   def create
-    @book = Book.new(params[:book])
+   # @book = @user.books.build(params[:book])
+  @book = Book.new(params[:book])
+
     if @book.save
       redirect_to @book, :notice => "Successfully created book."
     else
@@ -21,11 +26,11 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
+    @book = @user.books.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
+    @book = @user.books.find(params[:id])
     if @book.update_attributes(params[:book])
       redirect_to @book, :notice  => "Successfully updated book."
     else
@@ -34,8 +39,12 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
+    @book = @user.books.find(params[:id])
     @book.destroy
     redirect_to books_url, :notice => "Successfully destroyed book."
+  end
+  private
+  def find_user
+    @user = User.find(params[:user_id])
   end
 end

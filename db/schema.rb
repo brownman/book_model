@@ -10,12 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110908104304) do
+ActiveRecord::Schema.define(:version => 20110911111042) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
-    t.integer  "parent_id"
-    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -24,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20110908104304) do
   create_table "chapters", :force => true do |t|
     t.integer  "number"
     t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "compares", :force => true do |t|
+    t.integer  "chapter_id"
+    t.integer  "page_number_relative"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20110908104304) do
 
   create_table "pages", :force => true do |t|
     t.integer  "number"
-    t.integer  "chapter_id"
+    t.integer  "compare_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "lang_id"

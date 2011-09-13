@@ -1,15 +1,17 @@
 class ChaptersController < ApplicationController
+
+  before_filter :find_book , :only => [:index, :new]
   def index
-    @chapters = Chapter.all
+    @chapters = @book.chapters
   end
 
   def show
     @chapter = Chapter.find(params[:id])
-@pages = @chapter.pages
+@compares = @chapter.compares 
   end
 
   def new
-    @chapter = Chapter.new
+    @chapter = @book.chapters.build
   end
 
   def create
@@ -39,4 +41,9 @@ class ChaptersController < ApplicationController
     @chapter.destroy
     redirect_to chapters_url, :notice => "Successfully destroyed chapter."
   end
+private 
+def find_book
+@book = Book.find(params[:book_id])
+end
+
 end

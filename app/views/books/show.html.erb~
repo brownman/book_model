@@ -17,6 +17,8 @@
   <%= @book.user_id %>
 </p>
 
+  <strong>Chapters:</strong>
+
   <%= render :template => 'chapters/index' %>
 
 <p>

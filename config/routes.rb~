@@ -11,7 +11,7 @@ Test3::Application.routes.draw do
 
   resources :lines do
     member do
-       put 'sign' 
+       post 'sign' 
     end
   end
 

@@ -9,7 +9,7 @@
   <% for page in @pages %>
     <tr>
       <td><%= page.number %></td>
-      <td><%= page.chapter_id %></td>
+      <td><%= page.compare_id %></td>
       <td><%= page.lang_id %></td>
       <td><%= link_to "Show", page %></td>
       <td><%= link_to "Edit", edit_page_path(page) %></td>
@@ -18,4 +18,5 @@
   <% end %>
 </table>
 
-<p><%= link_to "New Page", new_page_path %></p>
+
+<p><%= link_to "New Page", new_page_path(:compare_id => @compare.id) %></p>

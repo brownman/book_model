@@ -1,0 +1,8 @@
+<% title "Edit Book" %>
+
+<%= render 'form' %>
+
+<p>
+  <%= link_to "Show", user_books_path @book %> |
+  <%= link_to "View All", user_books_path(:user_id => @user.id) %>
+</p>

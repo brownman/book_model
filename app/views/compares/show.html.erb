@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Chapter:</b>
+  <%= @compare.chapter_id %>
+</p>
+
+<p>
+  <b>Page number relative:</b>
+  <%= @compare.page_number_relative %>
+</p>
+
+  <strong>Pages:</strong>
+   <%= render :template => 'pages/index' %>
+
+
+<%= link_to 'Edit', edit_compare_path(@compare) %> |
+<%= link_to 'Back', compares_path %>

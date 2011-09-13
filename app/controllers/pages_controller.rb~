@@ -1,14 +1,19 @@
 class PagesController < ApplicationController
+  before_filter :find_compare , :only => [:index, :new]
   def index
-    @pages = Page.all
+
+    @pages = @compare.pages
+
+
   end
 
   def show
     @page = Page.find(params[:id])
+@lines =  @page.lines
   end
 
   def new
-    @page = Page.new
+    @page = @compare.pages.build
   end
 
   def create

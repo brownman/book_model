@@ -5,7 +5,9 @@ Test3::Application.routes.draw do
 
   resources :users
 
+
   resources :books
+  resources :compares
 
 #resources :lines 
 

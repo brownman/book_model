@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
+  before_filter :find_compare , :only => [:index, :new]
   def index
-    @pages = Page.all
+
+    @pages = @compare.pages
+
+
   end
 
   def show
@@ -9,7 +13,7 @@ class PagesController < ApplicationController
   end
 
   def new
-    @page = Page.new
+    @page = @compare.pages.build
   end
 
   def create
@@ -39,4 +43,8 @@ class PagesController < ApplicationController
     @page.destroy
     redirect_to pages_url, :notice => "Successfully destroyed page."
   end
+private 
+def find_compare
+ @compare = Compare.find(params[:compare_id])
+end
 end
