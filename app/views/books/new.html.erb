@@ -2,4 +2,4 @@
 
 <%= render 'form' %>
 
-<p><%= link_to "Back to List", books_path %></p>
+<p><%= link_to "Back to List", books_path(:user_id => @book.user_id) %></p>

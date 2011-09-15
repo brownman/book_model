@@ -20,6 +20,6 @@
 <p>
   <%= link_to "Edit", edit_line_path(@line) %> |
   <%= link_to "Destroy", @line, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", lines_path %>
+  <%= link_to "View All", lines_path(:page_id => @line.page_id) %>
 
 </p>

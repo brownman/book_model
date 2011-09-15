@@ -6,6 +6,6 @@ lines.each do |line|
 arr <<  line.content
 end
 str = arr.join('=')
-str
+str.to_html
   end
 end

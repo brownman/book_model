@@ -15,4 +15,5 @@
 
 
 <%= link_to 'Edit', edit_compare_path(@compare) %> |
-<%= link_to 'Back', compares_path %>
+<%= link_to 'Back', compares_path(:chapter_id => @compare.chapter_id) %>
+

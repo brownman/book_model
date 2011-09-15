@@ -1,0 +1,6 @@
+rails g -h #show generators
+
+#compare through the cli
+User.first.books.first.chapters.first.compares(:page_number_relative => 1)
+User.first.books.first.chapters.first.compares(:page_number_relative => 1).first.pages
+

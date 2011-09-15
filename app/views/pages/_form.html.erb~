@@ -5,12 +5,16 @@
     <%= f.text_field :number %>
   </p>
   <p>
-    <%= f.label :chapter_id %><br />
-    <%= f.text_field :chapter_id %>
+    <%= f.label :compare_id %><br />
+    <%= f.text_field :compare_id %>
   </p>
   <p>
     <%= f.label :lang_id %><br />
     <%= f.text_field :lang_id %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

@@ -6,7 +6,7 @@
 </p>
 <p>
   <strong>Chapter:</strong>
-  <%= @page.chapter_id %>
+  <%= @page.compare_id %>
 </p>
 <p>
   <strong>Lang:</strong>
@@ -23,5 +23,5 @@
 <p>
   <%= link_to "Edit", edit_page_path(@page) %> |
   <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", pages_path %>
+  <%= link_to "View All", pages_path(:compare_id => @page.compare_id)%>
 </p>

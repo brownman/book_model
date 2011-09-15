@@ -1,0 +1,18 @@
+<p>
+  <% if @readers && @readers[0] && @readers[1] && @readers[0].length > 0 && @readers[1].length > 0  %>
+    <table>
+      <% @min.times do |i|  %>
+
+        <tr>
+
+          <% @readers.each do |reader| %>
+            <%  line = reader[i] %>
+            <td><%= link_to "#{line.pos}) #{line.content}" , push_page_path(:id => line.page_id , :line_id => line.id), :method => :post  %></td>
+          <% end %>
+
+
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</p>

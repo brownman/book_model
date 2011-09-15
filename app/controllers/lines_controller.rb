@@ -1,6 +1,9 @@
 class LinesController < ApplicationController
+
+  before_filter :find_page , :only => [ :index, :new]
+#response_with :html
   def index
-    @lines = Line.find(:all, :conditions => "parent_id = 20", :order => 'pos')
+@lines = @page.lines.find(:all, :conditions => "parent_id = #{@page.id}", :order => 'pos')
   end
 
   def show
@@ -10,23 +13,35 @@ class LinesController < ApplicationController
 
 
   def new
-  @line = Line.new
+  @line = @page.lines.build
+
+#(:parent_id =>)
+@line.parent_id = @page.id
+@line.pos = @page.lines.length
   #(:parent_id => 20 , :pos =>  params[:pos].to_i + 1 )
-  end
-  def new1
-  @line = Line.new(:parent_id => 20 , :pos =>  params[:pos].to_i + 1 )
   end
 
   def sign
+
 line = Line.find(params[:id])
-pos = line.pos + 1
-  @line = Line.new(:parent_id => 20 , :pos => pos , :content => "=")
+pos = line.pos 
+#parent = line.parent_id
+@page  = Page.find(line.page_id)
+
+  @line = @page.lines.new(:parent_id => line.page_id , :pos => pos , :content => "+")
 @line.save
-redirect_to lines_url
+#render :controller => 'page' , :action => 'show' , :page_id => parent.to_s
+
+#show_page_path(:page_id => parent.to_s)
+
+redirect_to page_path :id => @page.id
+#lines_url , :page_id => parent.to_s
   end
 
   def create
     @line = Line.new(params[:line])
+
+@line.content = '?' if @line.content.empty?
     if @line.save
       redirect_to @line, :notice => "Successfully created line."
     else
@@ -52,4 +67,13 @@ redirect_to lines_url
     @line.destroy
     redirect_to lines_url, :notice => "Successfully destroyed line."
   end
+private 
+def find_page
+@page = Page.find(params[:page_id])
 end
+end
+ # def new1
+ # @line = Line.new(:parent_id => 20 , :pos =>  params[:pos].to_i + 1 )
+ # end
+
+

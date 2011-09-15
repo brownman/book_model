@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_filter :find_user , :only => [:index, :new]
   def index
     @books = @user.books
+
   end
 
   def show
@@ -39,9 +40,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = @user.books.find(params[:id])
+    @book = Book.find(params[:id])
+user_id  = @book.user_id
     @book.destroy
-    redirect_to books_url, :notice => "Successfully destroyed book."
+    redirect_to books_path(:user_id => user_id), :notice => "Successfully destroyed book."
   end
   private
   def find_user

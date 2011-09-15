@@ -17,11 +17,11 @@
       <td><%= link_to "Edit", edit_line_path(line) %></td>
       <td><%= link_to "Destroy", line, :confirm => 'Are you sure?', :method => :delete %></td>
  
-      <td><%= link_to "Mark as complete", sign_line_path(line), :method => :post %></td>
+      <td><%= link_to "PUSH", sign_line_path( :id => line.id), :method => :post , :class => 'button' %></td>
 
 
     </tr>
   <% end %>
 </table>
-
-<p><%= link_to "New Line", new_line_path %></p>
+<%= show_magic %>
+<p><%= link_to "New Line", new_line_path(:page_id => @page.id) %></p>

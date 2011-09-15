@@ -23,3 +23,5 @@
 <br />
 
 <%= link_to 'New Compare', new_compare_path %>
+
+<p><%= link_to "New Compare", new_compare_path(:chapter_id => @chapter.id) %></p>

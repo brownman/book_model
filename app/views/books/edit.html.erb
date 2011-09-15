@@ -4,5 +4,5 @@
 
 <p>
   <%= link_to "Show", @book %> |
-  <%= link_to "View All", books_path %>
+  <%= link_to "View All", books_path(:compare_id => @book.compare_id) %>
 </p>

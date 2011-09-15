@@ -3,6 +3,6 @@
 <%= render 'form' %>
 
 <p>
-  <%= link_to "Show", user_books_path @book %> |
-  <%= link_to "View All", user_books_path(:user_id => @user.id) %>
+  <%= link_to "Show", @book %> |
+  <%= link_to "View All", books_path %>
 </p>

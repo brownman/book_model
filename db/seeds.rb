@@ -13,9 +13,9 @@ c1 = b1.chapters.create(:number => 1)
 compare1 = c1.compares.create :page_number_relative
 
 p1 = compare1.pages.create :lang_id => 1
-p1.lines.create :content => "once upon atime , there was a king .. and he had a daughter" , :parent_id => 20 
+p1.lines.create :content => "once upon atime , there was a king .. and he had a daughter" , :parent_id => p1.id 
 p2 = compare1.pages.create :lang_id => 0
-p2.lines.create :content => "c'era una volta  , era un re .. che aveva un bellisima figlia " , :parent_id => 20 
+p2.lines.create :content => "c'era una volta  , era un re .. che aveva un bellisima figlia " , :parent_id => p2.id 
 
 
 #r1 = Reader.new :user_id => 1 , :book_id => 1 , :chapter_id =>1 , :page_id => 1 , :content => 'once upon a time , there was a king .. and he had a beautiful daughter'

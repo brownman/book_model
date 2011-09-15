@@ -5,14 +5,6 @@
   <%= @book.title %>
 </p>
 <p>
-  <strong>Parent:</strong>
-  <%= @book.parent_id %>
-</p>
-<p>
-  <strong>Position:</strong>
-  <%= @book.position %>
-</p>
-<p>
   <strong>User:</strong>
   <%= @book.user_id %>
 </p>
@@ -24,5 +16,5 @@
 <p>
   <%= link_to "Edit", edit_book_path(@book) %> |
   <%= link_to "Destroy", @book, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", books_path %>
+  <%= link_to "View All", books_path(:user_id => @book.user_id) %>
 </p>

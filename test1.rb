@@ -1,0 +1,6 @@
+
+str = "once upon a time .. there was a king, and he had... welll, he had a dog!"
+str.gsub!('.' , '.\n')
+lines  = str.split('\n')
+counter = 1
+puts lines
