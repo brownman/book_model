@@ -1,0 +1,2 @@
+$("#pages").html("<%= escape_javascript(render("page/index")) %>");
+
